@@ -1,0 +1,82 @@
+{% extends "admin/base.html" %}
+{% block title %} Admin Ticket Responses {% endblock %}
+{% block content %}
+{% include "admin/navbar.html" %}
+    <!-- Show Admin Details -->
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Reply Ticket</h4>
+                    </div>
+                    <!-- all tickets with their replies in a table-->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Opened On</th>
+                                            <th scope="col">Delete</th>
+                                            <th scope="col">Your Reply</th>
+                                            <th scope="col">Resolved On</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- combine tickets and ticket replies -->
+                                        {% for ticket in tickets %}
+                                        <tr>
+                                            <td>{{ ticket.id }}</td>
+                                            <td>{{ ticket.title }}</td>
+                                            <td>{{ ticket.description }}</td>
+                                            <td>{{ ticket.status|title }}</td>
+                                            <td>{{ ticket.created_at }}</td>
+                                            <td><a href="{{url_for('admin_ticket_delete', id=ticket.id)}}">Delete</a></td>
+                                            {% for ticket_reply in ticket_replies %}
+                                            {% if ticket.id == ticket_reply.ticket_id %}
+                                                <td>{{ ticket_reply.description }}</td>
+                                                <td>{{ ticket_reply.created_at }}</td>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form action="" method="POST">
+                                    {{ form.hidden_tag() }}
+                                    <div class="form-group row">
+                                        <label for="description" class="col-sm-2 col-form-label">Ticket ID</label>
+                                        <div class="col-sm-10">
+                                            {{ form.ticket_id(class="form-control") }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="description" class="col-sm-2 col-form-label">Description</label>
+                                        <div class="col-sm-10">
+                                            {{ form.description(class="form-control") }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <button type="submit" class="btn btn-primary">Reply</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

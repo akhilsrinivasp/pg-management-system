@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+{% block title %} Admin Dashboard {% endblock %}
+{% block content %}
+{% include "admin/navbar.html" %}
+    <!-- Show Admin Details -->
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Profile Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Username:</strong> {{ user.username }}</p>
+                        <p><strong>Email:</strong> {{ user.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

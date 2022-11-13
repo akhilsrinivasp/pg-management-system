@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav mr-auto">
+            <a href="/#rooms" class="nav-item nav-link">Rooms</a>
+            <a href="/#mess" class="nav-item nav-link">Mess</a>
+            <a href="/#locate" class="nav-item nav-link">Locate</a>
+            <a href="/#footer-hero" class="nav-item nav-link">About Us</a>
+        </div>
+        <!-- put "Anantha Sai Paying Guest House" in the center of the navbar -->
+        <div class="navbar-nav">
+            <a href="/" class="nav-item active nav-link">Anantha Sai Paying Guest House</a>
+        </div>
+        <!-- add a button for login/signup on the left -->
+        <div class="navbar-nav ml-auto">
+            <a href="{{url_for("login")}}" style = "margin-right:10px; margin-left:70px;"class="nav-item btn btn-secondary active nav-link">Login</a>
+            <a href="{{url_for("signup")}}" style = "margin-right:10px;" class="nav-item btn btn-light active nav-link">Signup</a>
+        </div>
+    </div>
+</nav>

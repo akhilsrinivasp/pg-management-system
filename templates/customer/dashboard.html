@@ -1,0 +1,55 @@
+{% extends "customer/base.html" %}
+{% block title %} Dashboard {% endblock %}
+{% block content %}
+{% include "customer/navbar.html" %}
+    <!-- Output the Profile Information -->
+    <br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Profile Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Username:</strong> {{ user.username }}</p>
+                        <p><strong>Email:</strong> {{ user.email }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Output if room -->
+            {% if room %}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Room Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Room Name:</strong> {{ room.name }}</p>
+                        <p><strong>No. of Beds:</strong> {{ room.size }}</p>
+                        <!-- capitalise the first letter -->
+                        <p><strong>Room Status:</strong> {{ room_booked.status|title }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+            <!-- Output if mess -->
+            {% if mess %}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Mess Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Mess Name:</strong> {{ mess.name }}</p>
+                        <p><strong>Description:</strong> {{ mess.description }}</p>
+                        <!-- capitalise the first letter -->
+                        <p><strong>Mess Status:</strong> {{ mess_booked.status|title }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

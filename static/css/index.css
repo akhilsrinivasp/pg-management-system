@@ -1,0 +1,71 @@
+.inner-hero {
+    background-size: cover;
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+    color: rgb(27, 26, 26);
+}
+
+.room-carousal {
+    /* set to span to the device width */
+    width: 90%;
+    margin-left: 5%;
+}
+
+.mess-cards {
+    /* set to span to the device width */
+    background-size: cover;
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+    color: rgb(27, 26, 26);
+}
+
+.mess-cards-item {
+    /* making the div looking like a card */
+    background-color: rgb(223, 223, 223);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-caption {
+    /* blur background */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    margin: 20px 0;
+    padding: 20px;
+    align-items: center;
+}
+
+.locate-flex {
+    /* create a flexbox to put map on one side and button on the other */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.locate-flex > div {
+    /* set the width of the map and button */
+    /* width: 50%; */
+    padding: 10px;
+}

@@ -1,0 +1,48 @@
+{% extends "index/base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+{% include "index/index_navbar.html" %}
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Login</h3>
+                </div>
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {{ form.hidden_tag() }}
+                        <div class="form-group
+                        {% if form.username.errors %}has-error{% endif %}">
+                            <label for="username">Username</label>
+                            {{ form.username }}
+                            {% if form.username.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.username.errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                        <div class="form-group {% if form.password.errors %}has-error{% endif %}">
+                            <label for="password">Password</label>
+                            {{ form.password }}
+                            {% if form.password.errors %}
+                            <ul class="errorlist">
+                                {% for error in form.password.errors %}
+                                <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

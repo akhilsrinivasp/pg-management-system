@@ -1,0 +1,146 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title text-center">Room - Pending Approval</h4>
+                </div>
+                <!-- Make a new Announcement -->
+                
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <!--  Room.name, Room.size, Room.attached_bathroom, RoomBookings.status, User.username -->
+                                <tr>
+                                    <th class="text-center">Room Name</th>
+                                    <th class="text-center">No. of Beds</th>
+                                    <th class="text-center">Attached Bathroom</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Username</th>
+                                    <th class="text-center">Price</th>
+                                    <th class="text-center">Approve</th>
+                                    <th class="text-center">Reject</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for record in room_pending %}
+                                <tr>
+                                    <td class="text-center">{{ record.name }}</td>
+                                    <td class="text-center">{{ record.size }}</td>
+                                    <td class="text-center">{{ record.attached_bathroom }}</td>
+                                    <td class="text-center">{{ record.status|title }}</td>
+                                    <td class="text-center">{{ record.username }}</td>
+                                    <td class="text-center">₹ {{ record.price }}</td>
+                                    <td class="text-center">
+                                        <form action="{{url_for('admin_booking_approve_room', username = record.username)}}" method="POST">
+                                            <button type="submit" class="btn btn-success">Approve</button>
+                                        </form>
+                                    </td>
+                                    <td class="text-center"> 
+                                        <form action="{{url_for('admin_booking_reject_room', username = record.username)}}" method="POST">
+                                            <button type="submit" class="btn btn-danger">Reject</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title text-center">Room - Approved</h4>
+                </div>
+                <!-- Make a new Announcement -->
+                
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <!--  Room.name, Room.size, Room.attached_bathroom, RoomBookings.status, User.username -->
+                                <tr>
+                                    <th class="text-center">Room Name</th>
+                                    <th class="text-center">No. of Beds</th>
+                                    <th class="text-center">Attached Bathroom</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Username</th>
+                                    <th class="text-center">Price</th>
+                                    <th class="text-center">Reject</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for record in room_approved %}
+                                <tr>
+                                    <td class="text-center">{{ record.name }}</td>
+                                    <td class="text-center">{{ record.size }}</td>
+                                    <td class="text-center">{{ record.attached_bathroom }}</td>
+                                    <td class="text-center">{{ record.status|title }}</td>
+                                    <td class="text-center">{{ record.username }}</td>
+                                    <td class="text-center">₹ {{ record.price }}</td>
+                                    <td class="text-center"> 
+                                        <form action="{{url_for('admin_booking_reject_room', username = record.username)}}" method="POST">
+                                            <button type="submit" class="btn btn-danger">Reject</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title text-center">Room - All Records</h4>
+                </div>
+                <!-- Make a new Announcement -->
+                
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <!--  Room.name, Room.size, Room.attached_bathroom, RoomBookings.status, User.username -->
+                                <tr>
+                                    <th class="text-center">Room Name</th>
+                                    <th class="text-center">No. of Beds</th>
+                                    <th class="text-center">Attached Bathroom</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Username</th>
+                                    <th class="text-center">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for record in room_bookings %}
+                                <tr>
+                                    <td class="text-center">{{ record.name }}</td>
+                                    <td class="text-center">{{ record.size }}</td>
+                                    <td class="text-center">{{ record.attached_bathroom }}</td>
+                                    <td class="text-center">{{ record.status|title }}</td>
+                                    <td class="text-center">{{ record.username }}</td>
+                                    <td class="text-center">₹ {{ record.price }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
