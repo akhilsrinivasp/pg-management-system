@@ -1,12 +1,12 @@
 # Paying Guest House Management System
 
 ## Table of Contents:
-- About the Application
-- Installation
-- Directory Structure
-- Application Demo 
-- Contribution
-- License
+- [About the Application](#about-the-app)
+- [Installation](#installation)
+- [Directory Structure](#directory-structure)
+- [Application Demo](#application-demo)
+- [Contribution](#contribution)
+- [License](#license)
 
 ## About the App: 
   This project aims to completely automate a Paying Guest House and Restaurant (PGHR), and reduce data redundancies and delays throughout the PGHR     Management. This would lead to a much more efficiently running hotel and a better experience for the customers.
@@ -45,6 +45,7 @@ or
 ```
 python app.py
 ```
+
 ## Directory Structure:
 ```
 |-pghr
